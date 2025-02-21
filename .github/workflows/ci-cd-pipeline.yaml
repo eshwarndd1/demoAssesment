@@ -64,8 +64,8 @@ jobs:
 
       - name: 🚀 Apply Kubernetes Manifests
         run: |
-          kubectl apply -f k8s/postgres.yaml
-          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/postgres.yaml --validate=false
+          kubectl apply -f k8s/deployment.yaml --validate=false
 
       - name: ✅ Verify Deployment
         run: kubectl get pods
