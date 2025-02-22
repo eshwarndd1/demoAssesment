@@ -61,7 +61,8 @@ jobs:
         run: |
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
           export KUBECONFIG=kubeconfig.yaml
-          kubectl config view
+          kubectl config use-context minikube
+          kubectl cluster-info
 
       - name: 🚀 Apply Kubernetes Manifests
         run: |
